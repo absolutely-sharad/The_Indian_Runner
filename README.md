@@ -65,3 +65,4 @@ Edit `www/index.html`, then run `npx cap sync android` before building. Raise `v
 
 The Pages workflow publishes `docs/privacy-policy.html` next to the game, so the policy URL for Play Console is
 `https://absolutely-sharad.github.io/village-run/privacy-policy.html`.
+# The_Indian_Runner
