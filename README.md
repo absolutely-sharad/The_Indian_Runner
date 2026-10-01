@@ -2,6 +2,24 @@
 
 An endless runner across 24 Indian cities, packaged for Google Play with Capacitor 8.
 
+**Play in the browser:** https://absolutely-sharad.github.io/village-run/
+**Privacy policy:** https://absolutely-sharad.github.io/village-run/privacy-policy.html
+
+## Put it on GitHub (first time)
+
+1. On github.com, create a **new public repository** named `village-run` under `absolutely-sharad`. Leave it empty (no README, no .gitignore, no licence).
+2. Unzip this project, open a terminal in the `villagerun` folder (it already contains a git history) and run:
+
+   ```
+   git remote add origin https://github.com/absolutely-sharad/village-run.git
+   git push -u origin main
+   ```
+
+3. In the repository: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+4. Open the **Actions** tab. "Deploy the game to GitHub Pages" runs on every push; after about a minute the game is live at the link above. (If the first run started before step 3, open it and click **Re-run all jobs**.)
+
+On phones, open the link in Chrome and choose **Add to Home screen** to install it like an app.
+
 | | |
 |---|---|
 | Package name | `com.sharadkushwaha.villagerun` |
@@ -45,4 +63,5 @@ Edit `www/index.html`, then run `npx cap sync android` before building. Raise `v
 
 ## Privacy policy hosting
 
-In the GitHub repository: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / `/docs`**. The policy URL becomes `https://YOUR-USERNAME.github.io/REPO-NAME/privacy-policy.html`. GitHub Pages on a private repository needs a paid plan, so either make a separate small public repository holding only `docs/`, or host the page anywhere public.
+The Pages workflow publishes `docs/privacy-policy.html` next to the game, so the policy URL for Play Console is
+`https://absolutely-sharad.github.io/village-run/privacy-policy.html`.

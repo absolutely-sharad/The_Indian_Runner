@@ -67,7 +67,7 @@ For reference, your upload certificate fingerprints:
 
 ## 6. App content (Policy → App content)
 
-**Privacy policy.** Host `docs/privacy-policy.html` publicly (see README → "Privacy policy hosting") and paste its URL.
+**Privacy policy.** Paste `https://absolutely-sharad.github.io/village-run/privacy-policy.html` (published automatically by the Pages workflow).
 
 **Ads.** No, my app does not contain ads.
 
@@ -164,8 +164,8 @@ Grab magnets, shields and 2x score. Use keys to revive after a crash, and claim 
 | Category | Game → Arcade |
 | Tags | Runner, Casual, Offline (pick what the console offers) |
 | Email | sharadsingh0203@gmail.com (shown publicly; use a separate address if you prefer) |
-| Website | Optional |
-| Privacy policy | Same URL as in App content |
+| Website | https://absolutely-sharad.github.io/village-run/ |
+| Privacy policy | https://absolutely-sharad.github.io/village-run/privacy-policy.html |
 
 **Release notes for 1.0.0:**
 First release: run across 24 Indian cities in 4 laps, 24 runners with costumes, tasla rides, lap rewards and daily free keys.
