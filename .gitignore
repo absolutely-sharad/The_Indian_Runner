@@ -1,0 +1,8 @@
+node_modules/
+# Never commit the upload key or its passwords
+*.jks
+*.keystore
+*.jks.base64.txt
+keystore.properties
+android/keystore.properties
+.DS_Store

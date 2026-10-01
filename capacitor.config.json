@@ -1,0 +1,18 @@
+{
+  "appId": "com.sharadkushwaha.villagerun",
+  "appName": "Village Run",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": false,
+    "webContentsDebuggingEnabled": false,
+    "backgroundColor": "#0F3237"
+  },
+  "plugins": {
+    "SystemBars": {
+      "hidden": true,
+      "style": "DARK",
+      "insetsHandling": "css"
+    }
+  }
+}

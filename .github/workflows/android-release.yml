@@ -1,0 +1,63 @@
+name: Build Android release (AAB)
+
+# Run it from the Actions tab ("Run workflow"), or push a tag like v1.0.0.
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Set up the Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Copy the game into the Android project
+        run: npx cap sync android
+
+      - name: Restore the upload key from secrets
+        run: echo "${{ secrets.UPLOAD_KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/village-run-upload.jks"
+
+      - name: Build the signed app bundle
+        working-directory: android
+        env:
+          VR_KEYSTORE_PATH: ${{ runner.temp }}/village-run-upload.jks
+          VR_KEYSTORE_PASSWORD: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
+          VR_KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
+          VR_KEY_PASSWORD: ${{ secrets.UPLOAD_KEY_PASSWORD }}
+          VR_VERSION_CODE: ${{ github.run_number }}
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon bundleRelease
+
+      - name: Check the bundle is signed with the upload key
+        run: |
+          AAB=$(ls android/app/build/outputs/bundle/release/*.aab)
+          jarsigner -verify -verbose:summary "$AAB" | tail -3
+          keytool -printcert -jarfile "$AAB" | grep -E "Owner|SHA256"
+
+      - name: Upload the AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: village-run-release-aab
+          path: android/app/build/outputs/bundle/release/*.aab
+          if-no-files-found: error
