@@ -1,9 +1,9 @@
-# Village Run (Android)
+# The_Indian_Runner (Android)
 
 An endless runner across 24 Indian cities, packaged for Google Play with Capacitor 8.
 
-**Play in the browser:** https://absolutely-sharad.github.io/village-run/
-**Privacy policy:** https://absolutely-sharad.github.io/village-run/privacy-policy.html
+**Play in the browser:** [https://absolutely-sharad.github.io/village-run/](https://absolutely-sharad.github.io/The_Indian_Runner/)
+**Privacy policy:** https:[//absolutely-sharad.github.io/village-run/](https://absolutely-sharad.github.io/The_Indian_Runner/privacy-policy.html)
 
 ## Put it on GitHub (first time)
 
@@ -65,4 +65,4 @@ Edit `www/index.html`, then run `npx cap sync android` before building. Raise `v
 
 The Pages workflow publishes `docs/privacy-policy.html` next to the game, so the policy URL for Play Console is
 `https://absolutely-sharad.github.io/village-run/privacy-policy.html`.
-# The_Indian_Runner
+
